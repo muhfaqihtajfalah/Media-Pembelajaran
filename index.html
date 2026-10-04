@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Media Pembelajaran Interaktif: Model OSI dan Protokol Jaringan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ikon SVG bergaya garis (tanpa emoji) -->
+<svg class="icon-sprite" aria-hidden="true" focusable="false">
+  <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.6 3 14.4 0 18M12 3c-3 3.6-3 14.4 0 18"/></symbol>
+  <symbol id="icon-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.1 4.8-4.8 2.1 2.1-4.8z"/></symbol>
+  <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></symbol>
+  <symbol id="icon-link" viewBox="0 0 24 24"><path d="M10.5 13.5a4 4 0 0 0 5.7.1l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7M13.5 10.5a4 4 0 0 0-5.7-.1l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/></symbol>
+  <symbol id="icon-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zM9 21v-6h6v6"/></symbol>
+  <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5zM4 4.5v17"/><path d="M8 6h8M8 10h8"/></symbol>
+  <symbol id="icon-play" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></symbol>
+  <symbol id="icon-clipboard" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5V3h6v1.5M8.5 10h7M8.5 14h7"/></symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h17"/><path d="M8 17v-5M12 17V7M16 17v-8"/></symbol>
+  <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3L3 10M4 5v5h5M4 13a8 8 0 0 0 14.9 3L21 14M20 19v-5h-5"/></symbol>
+</svg>
+
+<!-- ================= NAVBAR ================= -->
+<header class="nav">
+  <div class="nav-in">
+    <button class="brand" data-go="dashboard" aria-label="Ke Dashboard">
+      <svg class="logo" aria-hidden="true"><use href="#icon-globe"/></svg><span>OSI<span>Learn</span></span>
+    </button>
+    <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Menu utama">
+      <button data-go="dashboard" class="active">Dashboard</button>
+      <button data-go="materi">Materi</button>
+      <button data-go="kuis">Kuis</button>
+      <button data-go="petunjuk">Petunjuk</button>
+      <button data-go="tentang">Tentang</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ================= DASHBOARD ================= -->
+<section id="dashboard" class="page active">
+  <div class="hero">
+    <div>
+      <h1>Media Pembelajaran Interaktif</h1>
+      <h2>Model OSI dan Protokol Jaringan</h2>
+      <p>Pelajari konsep Model OSI, fungsi setiap layer, serta berbagai protokol yang digunakan dalam komunikasi jaringan.</p>
+      <button class="btn" data-go="materi">Mulai Belajar</button>
+    </div>
+    <div class="hero-art" id="heroArt"></div>
+  </div>
+
+  <!-- PROGRESS BELAJAR -->
+  <div class="card prog-card">
+    <div class="ring" id="ring" role="img" aria-label="Persentase progress belajar"><span id="ringTxt">0%</span></div>
+    <div>
+      <h3>Progress Belajar</h3>
+      <p id="progSub">0 dari 5 tahap selesai</p>
+      <ul class="steps" id="steps"></ul>
+    </div>
+    <button class="reset" id="resetProg">Reset progress</button>
+  </div>
+
+  <div class="grid dashboard-cards">
+    <button class="card link" data-go="materi" data-scroll="materiA"><svg class="ico" aria-hidden="true"><use href="#icon-compass"/></svg><h3>Model OSI</h3><p>Kerangka acuan yang menjelaskan bagaimana data berpindah antar komputer.</p></button>
+    <button class="card link" data-go="materi" data-scroll="materiB"><svg class="ico" aria-hidden="true"><use href="#icon-layers"/></svg><h3>7 Layer OSI</h3><p>Tujuh tingkatan, dari Physical sampai Application, masing-masing punya tugas sendiri.</p></button>
+    <button class="card link" data-go="materi" data-scroll="materiC"><svg class="ico" aria-hidden="true"><use href="#icon-link"/></svg><h3>Protokol Jaringan</h3><p>HTTP, HTTPS, FTP, SMTP, DNS, TCP, UDP, dan IP.</p></button>
+  </div>
+</section>
+
+<!-- ================= MATERI ================= -->
+<section id="materi" class="page">
+  <h1 class="title">Materi</h1>
+  <div class="chips">
+    <button data-go="materi" data-scroll="materiA">A. Pengertian Model OSI</button>
+    <button data-go="materi" data-scroll="materiB">B. 7 Layer Model OSI</button>
+    <button data-go="materi" data-scroll="materiC">C. Contoh Protokol Jaringan</button>
+  </div>
+
+  <!-- A -->
+  <div id="materiA" class="block topic active">
+    <h2>A. Pengertian Model OSI</h2>
+    <div class="grid g3">
+      <div class="card"><h3>Apa itu Model OSI?</h3><p>Model OSI adalah kerangka acuan yang menggambarkan cara data dikirim dari satu komputer ke komputer lain, dibagi menjadi 7 tahap yang disebut layer.</p></div>
+      <div class="card"><h3>Kepanjangan OSI</h3><p><b>Open Systems Interconnection</b>. Model ini dibuat oleh ISO supaya sistem dari produsen berbeda bisa saling berkomunikasi.</p></div>
+      <div class="card"><h3>Tujuan</h3><p>Menjadi standar acuan agar komunikasi antar sistem berjalan seragam dan mudah dipahami.</p></div>
+      <div class="card"><h3>Fungsi dalam komunikasi jaringan</h3><p>Memetakan proses komunikasi ke dalam layer. Setiap layer punya tugas sendiri dan hanya berhubungan dengan layer di atas dan di bawahnya.</p></div>
+      <div class="card"><h3>Kenapa dibagi jadi beberapa layer?</h3><p>Tugas besar dipecah jadi kecil. Jadi lebih mudah dipelajari, dicari masalahnya, dan dikembangkan tanpa mengubah layer lain.</p></div>
+    </div>
+    <div class="card flow-card">
+      <h3>Gambaran alur data</h3>
+      <p>Data turun dari Application ke Physical di sisi pengirim, lalu naik lagi dari Physical ke Application di sisi penerima.</p>
+      <div class="flow" id="osiFlow"></div>
+    </div>
+    <div class="card video-support">
+      <h3>Video: Pengertian Model OSI</h3>
+      <div class="video"><video controls preload="metadata" aria-label="Video penjelasan pengertian Model OSI"><source src="video/osi%20model.mp4" type="video/mp4">Browser Anda tidak mendukung pemutaran video.</video></div>
+      <p class="video-note">Tonton video ini untuk memahami konsep dasar Model OSI.</p>
+    </div>
+    <div id="checkA"></div>
+    <div class="topic-nav"><span></span><button class="btn" data-go="materi" data-scroll="materiB">Lanjut: 7 Layer OSI →</button></div>
+  </div>
+
+  <!-- B -->
+  <div id="materiB" class="block topic">
+    <h2>B. 7 Layer Model OSI</h2>
+    <p class="hint">Klik sebuah layer untuk melihat penjelasan detailnya.</p>
+    <div class="layers-wrap">
+      <div class="stack" id="stack"></div>
+      <div class="card detail" id="detail" aria-live="polite"></div>
+    </div>
+    <div class="card video-support">
+      <h3>Video  : 7 Layer Model OSI</h3>
+      <div class="video"><video controls preload="metadata" aria-label="Video penjelasan 7 Layer Model OSI"><source src="video/layer%20model%20osi.mp4" type="video/mp4">Browser Anda tidak mendukung pemutaran video.</video></div>
+      <p class="video-note">Tonton video ini untuk memahami urutan dan fungsi setiap layer pada Model OSI.</p>
+    </div>
+    <div id="checkB"></div>
+    <div class="topic-nav"><button class="btn line" data-go="materi" data-scroll="materiA">← Kembali</button><button class="btn" data-go="materi" data-scroll="materiC">Lanjut: Protokol Jaringan →</button></div>
+  </div>
+
+  <!-- C -->
+  <div id="materiC" class="block topic">
+    <h2>C. Contoh Protokol Jaringan</h2>
+    <div class="grid g4" id="protoGrid"></div>
+    <div class="card video-support">
+      <h3>Video: Protokol Jaringan</h3>
+      <div class="video"><video controls preload="metadata" aria-label="Video penjelasan protokol jaringan"><source src="video/protokol%20jaringan.mp4" type="video/mp4">Browser Anda tidak mendukung pemutaran video.</video></div>
+      <p class="video-note">Tonton video ini untuk memahami contoh dan fungsi protokol jaringan.</p>
+    </div>
+    <div id="checkC"></div>
+    <div class="topic-nav"><button class="btn line" data-go="materi" data-scroll="materiB">← Kembali</button><button class="btn" data-go="kuis">Ke Kuis →</button></div>
+  </div>
+</section>
+
+<!-- ================= KUIS ================= -->
+<section id="kuis" class="page">
+  <div id="quizBox"></div>
+</section>
+
+<!-- ================= PETUNJUK ================= -->
+<section id="petunjuk" class="page">
+  <h1 class="title">Petunjuk Penggunaan</h1>
+  <div class="grid g4">
+    <div class="card"><svg class="ico" aria-hidden="true"><use href="#icon-home"/></svg><h3>Dashboard</h3><p>Halaman awal website, berisi Progress Belajar yang bisa direset kapan saja.</p></div>
+    <div class="card"><svg class="ico" aria-hidden="true"><use href="#icon-book"/></svg><h3>Materi</h3><p>Tempat mempelajari Model OSI dan Protokol Jaringan. Tiap materi punya Cek Pemahaman di bagian bawahnya.</p></div>
+    <div class="card"><svg class="ico" aria-hidden="true"><use href="#icon-layers"/></svg><h3>7 Layer OSI</h3><p>Klik setiap layer untuk melihat penjelasan lebih lanjut.</p></div>
+    <div class="card"><svg class="ico" aria-hidden="true"><use href="#icon-link"/></svg><h3>Protokol Jaringan</h3><p>Pelajari HTTP, HTTPS, FTP, SMTP, DNS, TCP, UDP, dan IP.</p></div>
+    <div class="card"><svg class="ico" aria-hidden="true"><use href="#icon-play"/></svg><h3>Video Pendukung</h3><p>Setiap materi memiliki tempat untuk satu video pendukung.</p></div>
+    <div class="card"><svg class="ico" aria-hidden="true"><use href="#icon-clipboard"/></svg><h3>Kuis</h3><p>Kerjakan soal pilihan ganda berdasarkan materi.</p></div>
+    <div class="card"><svg class="ico" aria-hidden="true"><use href="#icon-chart"/></svg><h3>Hasil Kuis</h3><p>Setelah selesai, kamu bisa melihat nilai dan pembahasan.</p></div>
+    <div class="card"><svg class="ico" aria-hidden="true"><use href="#icon-refresh"/></svg><h3>Ulangi Kuis</h3><p>Ingin mencoba lagi? Kuis bisa diulang dari soal pertama.</p></div>
+  </div>
+</section>
+
+<!-- ================= TENTANG ================= -->
+<section id="tentang" class="page">
+  <h1 class="title">Tentang Media Pembelajaran</h1>
+  <div class="card about-intro">
+    <div class="about-copy">
+      <span class="about-label">Mengenal OSI Learn</span>
+      <h2>Belajar jaringan, selangkah demi selangkah.</h2>
+      <p>Media pembelajaran interaktif ini dirancang untuk membantu mahasiswa memahami Model OSI dan protokol jaringan dengan cara yang lebih sederhana, visual, dan mudah dipraktikkan.</p>
+      <p>Materi disusun dari konsep dasar hingga penerapannya, sehingga kamu dapat belajar dengan lebih terarah dan percaya diri.</p>
+    </div>
+    <div class="about-points" aria-label="Keunggulan media pembelajaran">
+      <div class="about-point">
+        <svg class="ico" aria-hidden="true"><use href="#icon-layers"/></svg>
+        <div><h3>Materi terstruktur</h3><p>Pahami setiap layer OSI secara runtut.</p></div>
+      </div>
+      <div class="about-point">
+        <svg class="ico" aria-hidden="true"><use href="#icon-play"/></svg>
+        <div><h3>Belajar lebih visual</h3><p>Didukung video untuk memperjelas konsep.</p></div>
+      </div>
+      <div class="about-point">
+        <svg class="ico" aria-hidden="true"><use href="#icon-clipboard"/></svg>
+        <div><h3>Uji pemahaman</h3><p>Gunakan kuis untuk mengevaluasi hasil belajar.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>Sumber Materi</h2>
+    <!-- UBAH: daftar sumber materi -->
+    <div class="grid g2 source-material-grid">
+      <a class="card link src" href="Modul%20Jaringan%20Komputer.pdf" target="_blank" rel="noopener noreferrer"><h3>UBSI – Modul Jaringan Komputer</h3><p>Modul pendukung yang membahas TCP, UDP, serta protokol pada Application Layer seperti FTP, SMTP, DNS, SNMP, TFTP, Telnet, POP3, dan DHCP.</p></a>
+    </div>
+
+    <h2 class="block">Sumber Video</h2>
+    <div class="grid g2">
+      <a class="card link src" href="https://youtu.be/t_NWXMYpnDA?si=7PPyWMauvcZZ5OtB" target="_blank" rel="noopener noreferrer"><h3>YouTube – Pengertian Model OSI</h3><p>Sumber video pendukung untuk materi Pengertian Model OSI.</p></a>
+      <a class="card link src" href="https://youtu.be/YLAb5MZ3E6I?si=S_CUl59b3Ibtw07M" target="_blank" rel="noopener noreferrer"><h3>YouTube – Protokol Jaringan</h3><p>Sumber video pendukung untuk materi Protokol Jaringan.</p></a>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="foot">Media Pembelajaran Interaktif: Model OSI dan Protokol Jaringan </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
